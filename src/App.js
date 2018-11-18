@@ -1,28 +1,58 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { Route } from "react-router-dom";
+import { connect } from "react-redux";
+import CommentBox from "components/CommentBox/CommentBox";
+import CommentList from "components/CommentList/CommentList";
+import * as actions from "actions";
+import NavigationItems from "components/Navigation/NavigationItems";
+
+
 
 class App extends Component {
+  componentDidMount() {
+    console.log("App props", this.props);
+  }
+  componentDidUpdate() {
+    console.log("CDU");
+  }
+
+  renderButton() {
+    if (this.props.auth) {
+      return (
+        <button onClick={() => this.props.changeAuth(false)}>Sign Out</button>
+      );
+    } else {
+      return (
+        <button onClick={() => this.props.changeAuth(true)}>Sign In</button>
+      );
+    }
+  }
+
+  renderHeader() {
+    return (
+      <React.Fragment>
+         <NavigationItems auth={this.props.auth}/>
+         {/* {this.renderButton()} */}
+      </React.Fragment>
+    );
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        {this.renderHeader()}
+        <Route path="/post" component={CommentBox} />
+        <Route path="/" exact component={CommentList} />
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps=(state)=> {
+  return { auth: state.auth };
+}
+
+export default connect(
+  mapStateToProps,
+  actions
+)(App);

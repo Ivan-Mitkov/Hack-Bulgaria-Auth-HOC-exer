@@ -1,0 +1,24 @@
+.posts{
+    border: 1px solid #eee;
+    width: 80%;
+    text-align: justify;
+    text-justify: inter-cluster;
+    margin: 20px;
+    padding: 20px;
+}
+
+.title{
+   font-size: 2rem;
+    padding-bottom: 10px;
+    
+}
+.body{
+    font-size: 1.2rem;
+     
+ }
+
+.mainTitle{
+    font-size: 2rem;
+    padding-bottom: 10px;
+    text-align: center; 
+} 

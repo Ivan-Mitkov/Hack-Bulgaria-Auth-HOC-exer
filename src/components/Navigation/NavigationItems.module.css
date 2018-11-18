@@ -1,0 +1,47 @@
+.NavigationItems {
+    background-color: rgb(5, 1, 59);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    height: 80px;
+    width: 100%;
+}
+.navLinkDiv{
+    display: flex;
+    align-items: flex-end;
+    width:20%;
+}
+
+.btn {   
+    align-self:center;
+    width: 80%;
+    text-align: end;
+    margin-right: 20%;
+}
+
+.navBtn {    
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    height: 100%;
+    width: 80px;
+    text-decoration: none;
+    color: rgb(160, 206, 248);
+    background-color: rgb(5, 1, 59);
+
+}
+
+.navBtn :hover,.navBtn:active,.navBtn::selection {
+    border-bottom: 4px solid #40a4c8;
+    color: rgb(246, 248, 250);
+}
+
+@media(min-width:500px) {
+    .NavigationItems {
+        flex-flow: row;
+    }
+}
